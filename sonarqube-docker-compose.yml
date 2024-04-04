@@ -98,7 +98,8 @@ services:
       SONARQUBE_SMTP_PORT_NUMBER: ${SONARQUBE_SMTP_PORT}
       SONARQUBE_SMTP_USER: ${SONARQUBE_SMTP_USER_NAME}
       SONARQUBE_SMTP_PASSWORD: ${SONARQUBE_SMTP_PASSWORD}
-      SONARQUBE_MAX_HEAP_SIZE: Xms4g
+      SONARQUBE_MAX_HEAP_SIZE: 2048mb
+      SONARQUBE_MIN_HEAP_SIZE: 2048mb
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/9000' || exit 1
       interval: 10s
