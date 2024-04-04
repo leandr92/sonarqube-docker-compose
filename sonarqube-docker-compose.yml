@@ -98,9 +98,7 @@ services:
       SONARQUBE_SMTP_PORT_NUMBER: ${SONARQUBE_SMTP_PORT}
       SONARQUBE_SMTP_USER: ${SONARQUBE_SMTP_USER_NAME}
       SONARQUBE_SMTP_PASSWORD: ${SONARQUBE_SMTP_PASSWORD}
-      - SONAR_WEB_JAVAOPTS=-server -Xms1g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError
-      - SONAR_CE_JAVAOPTS=-Xms4g -Xmx4g -XX:+HeapDumpOnOutOfMemoryError
-      - SONAR_SEARCH_JAVAOPTS=-Xms2g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError
+      SONARQUBE_MAX_HEAP_SIZE: Xms4g
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/9000' || exit 1
       interval: 10s
